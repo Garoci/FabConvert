@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+build/
+dist/
+.eggs/
+*.whl
+
+# Virtual environments
+.venv*/
+venv*/
+env/
+
+# pytest / coverage / tool caches
+.pytest_cache/
+.coverage
+htmlcov/
+.ruff_cache/
+.mypy_cache/
+
+# OS / editor
+Thumbs.db
+.DS_Store
+.vscode/
+.idea/
+
+# Local scratch / debug dumps (never commit)
+_*.py
+_*out*
+_out_*.png
+*.env
+.env.*
+secrets.*
+*.pem
+*.key
+
+# Generated test / probe images
+tests/**/out_*.png
+**/reported_bug*.png

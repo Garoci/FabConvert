@@ -1,0 +1,88 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fabconvert"
+description = "Convert PCB fabrication files between SVG ⇄ DXF ⇄ Gerber (library + CLI + optional GUI)."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "fabconvert contributors" }]
+keywords = [
+    "pcb",
+    "pcb-design",
+    "gerber",
+    "gerber-converter",
+    "dxf",
+    "dxf-converter",
+    "svg",
+    "cad",
+    "kicad",
+    "fabrication",
+    "converter",
+    "eda",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Manufacturing",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Multimedia :: Graphics :: Graphics Conversion",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dynamic = ["version"]
+dependencies = [
+    "ezdxf>=0.17",
+    "click>=8.1",
+    "rich>=13",
+    # DXF trace-width recovery: a closed trace-outline ribbon polygon's
+    # centreline+width is recovered from its Voronoi medial axis
+    # (fabconvert.formats.medialaxis). scipy.spatial.Voronoi does the real work;
+    # point-in-polygon + nearest-boundary-distance are pure-Python here (no
+    # shapely needed).  Prebuilt wheel, ~36MB, no compilation.
+    "scipy>=1.7",
+]
+
+[project.optional-dependencies]
+gui = [
+    "PySide6>=6.5",
+]
+dev = [
+    "pytest>=7",
+    "pytest-cov",
+    "ruff",
+    "build",
+]
+
+[project.scripts]
+fabconvert = "fabconvert.cli:main"
+fabconvert-gui = "fabconvert.gui:main"
+
+[project.urls]
+Homepage = "https://github.com/fabconvert/fabconvert"
+
+# Explicit package list (NOT auto-discovery) so only the library subpackages
+# are shipped in a real (non-editable) build. An explicit list disables
+# discovery, so every subpackage must be named.
+[tool.setuptools]
+packages = [
+    "fabconvert",
+    "fabconvert.core",
+    "fabconvert.alignment",
+    "fabconvert.formats",
+    "fabconvert.gui",
+]
+
+[tool.setuptools.dynamic]
+version = { attr = "fabconvert.__version__" }
+
+[tool.ruff]
+line-length = 88
+target-version = "py39"
