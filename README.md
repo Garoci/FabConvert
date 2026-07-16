@@ -144,4 +144,4 @@ Full docs index: [docs/index.md](docs/index.md) (quickstart, CLI, library API, G
 
 ## License
 
-[MIT](https://opensource.org/licenses/MIT) — see `pyproject.toml` (`license = { text = "MIT" }`).
+[MIT](https://opensource.org/licenses/MIT) — see `pyproject.toml` .
