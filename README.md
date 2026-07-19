@@ -9,7 +9,7 @@
 **TheFabConvert** (`fabconvert`) converts PCB fabrication files between **SVG ⇄ DXF ⇄ Gerber** as a Python library, a CLI, and an optional desktop GUI.
 
 
-![Screenshot](screenshot.png)
+![Screenshot](screenshot.PNG)
 
 ## Motivation
 
