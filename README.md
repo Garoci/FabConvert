@@ -8,6 +8,9 @@
 
 **TheFabConvert** (`fabconvert`) converts PCB fabrication files between **SVG ⇄ DXF ⇄ Gerber** as a Python library, a CLI, and an optional desktop GUI.
 
+
+![Screenshot](screenshot.png)
+
 ## Motivation
 
 Open-source tooling often covers one pair of formats, or embeds conversion inside a larger EDA stack. There has not been a small, dedicated open-source project that offers **direct, easy conversion between Gerber, DXF, and SVG in one place** — library + CLI + GUI — without pulling in a full CAD application. This project fills that gap.
